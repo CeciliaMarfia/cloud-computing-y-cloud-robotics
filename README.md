@@ -6,6 +6,7 @@ Material de la materia Cloud Computing y Cloud Robotics (Facultad de Informátic
 
 - `teoria/`: diapositivas de las clases teóricas.
 - `practica/`: actividades prácticas (AWS EC2).
+- `proyecto-final/`: robot ROBOT-02 controlado con Node-RED sobre una Raspberry Pi. Incluye el flujo de Node-RED (`flujo-final.json`) y capturas del flujo y del dashboard (`img/`).
 
 ---
 
