@@ -76,6 +76,8 @@ hostname -I                                          # muestra la IP privada (la
 
 **Conexión:** en cualquier nodo `mqtt in` o `mqtt out`, en *Server* va la **IP privada de A** y el **puerto 1883**. Cuando conecta, el nodo muestra **"connected"** en verde.
 
+![](img/simupi-config-broker.png)
+
 ---
 
 ## Cómo se arma el flujo (ejemplo guiado: invernadero)
@@ -87,6 +89,8 @@ hostname -I                                          # muestra la IP privada (la
 [mqtt in: sensor/humidity]    ──▶ [gauge Humedad] + [debug]
 ```
 - El `gauge` toma `msg.payload`, y su rango (mín./máx.) tiene que coincidir con el del sensor.
+
+![](img/simupi-flujo-invernadero.png)
 
 **Actuadores (dashboard → MQTT):**
 ```
@@ -101,6 +105,9 @@ hostname -I                                          # muestra la IP privada (la
 	- **¿Por qué dos valores?** Con un único umbral (30 °C), si la temperatura oscila entre 29,9 y 30,1 °C, el ventilador se prende y apaga constantemente. La **histéresis** deja una "banda muerta" entre 27 y 30 °C en la que **se mantiene el estado anterior**.
 	- Solo se publica **cuando el estado cambia** (no en cada lectura).
 - **Alarma:** un indicador en el dashboard cuando un valor sale de su rango seguro (ej. > 35 °C).
+
+![](img/simupi-dashboard-automatico.png)
+
 - **Modo MANUAL / AUTOMÁTICO:** un switch del dashboard guarda el modo en una **variable de contexto de flujo** (`flow.modo`). En manual mandan los switches; en automático, la lógica.
 
 ```javascript

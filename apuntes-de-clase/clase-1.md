@@ -73,8 +73,6 @@ Se piensan **en capas**: cada capa se apoya en la de abajo, y cuanto más arriba
 | **IaaS** | Infraestructura virtual (VMs, discos, redes) | SO, software, configuración | **Amazon EC2**, Google Compute Engine |
 | HW / Red | Hardware físico, firmware, kernel (SO, VMM) | — (lo gestiona el proveedor) | — |
 
-![](img/vision-en-capas.png)
-
 ### IaaS – Infraestructura como Servicio
 Ofrece, **por medio de la virtualización**, recursos de infraestructura virtual (servidores, almacenamiento, dispositivos de red, etc.), **flexibles y escalables**. Muchos usuarios **comparten el mismo hardware físico** de forma **transparente, segura e independiente**.
 - El usuario **no controla la infraestructura subyacente** (no toca el hardware), pero sí el SO y lo que instala.

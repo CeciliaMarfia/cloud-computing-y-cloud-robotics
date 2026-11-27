@@ -108,6 +108,8 @@ Desde *Manage palette → Install*:
 | Verde | **40** | GPIO 21 | Salida digital (encendido/apagado) |
 | GND común | **39** | GND | Referencia de tierra (0 V) |
 
+![](img/rpi-conexion-leds.png)
+
 Cada módulo LED ya trae su **resistencia limitadora** (220–330 Ω), que evita que pase demasiada corriente y se queme el LED o el pin.
 
 **Caso 1 – Encender o apagar un LED (salida digital):**
@@ -131,6 +133,8 @@ Cada módulo LED ya trae su **resistencia limitadora** (220–330 Ω), que evita
 | GND | 6 | 0 V |
 | OUT | **8** (o **11**) | Señal digital de 3,3 V (GPIO 14 o GPIO 17) |
 
+![](img/rpi-conexion-pir.png)
+
 - **Potenciómetro de retardo:** hay que girarlo **todo hacia la izquierda** para que la señal dure lo mínimo (~3 s). Al máximo, queda en ALTO **más de 3 minutos**.
 - **Si el pin 8 da lecturas erráticas:** es el **UART TXD** (la consola serie del sistema), así que conviene pasar al **pin 11**.
 
@@ -140,6 +144,8 @@ Cada módulo LED ya trae su **resistencia limitadora** (220–330 Ω), que evita
 
 [pi gpiod in · Pin 8] ──▶ [switch: flow.switch == 1 (num)] ──▶ [debug / alerta]
 ```
+![](img/rpi-flujo-pir.png)
+
 - La **variable de flujo** `flow.switch` guarda si la alarma está **armada**. Cualquier nodo de la **misma pestaña** la puede consultar.
 - **Error común en el nodo `switch`:** en el valor de comparación hay que elegir el tipo **número (123)**. Si queda el tipo `flow.`, Node-RED busca una variable llamada `flow.1`, que no existe, y **la condición nunca se cumple**.
 
