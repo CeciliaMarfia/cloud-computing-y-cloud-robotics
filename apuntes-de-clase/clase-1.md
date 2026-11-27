@@ -1,6 +1,6 @@
 # Clase 1 – Introducción a Cloud Computing
 
-> Teoría 1 (Lic. Ismael P. Rodríguez). Temas: qué es Cloud Computing, modelos de servicio, modelos de despliegue, beneficios y riesgos, virtualización y despliegue de un cloud privado.
+> Teoría 1. Temas: qué es Cloud Computing, modelos de servicio, modelos de despliegue, beneficios y riesgos, virtualización y despliegue de un cloud privado.
 
 ---
 

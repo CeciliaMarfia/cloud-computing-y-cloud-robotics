@@ -1,7 +1,5 @@
 # Respuestas de repaso
 
-> Respuestas desarrolladas de las preguntas que aparecen al final de cada apunte. La idea es que primero respondas vos y después compares. Cada respuesta indica de qué nota sale.
-
 ---
 
 ## Clase 1 – Introducción a Cloud Computing
@@ -122,7 +120,7 @@ Es una **IPv4 pública fija que pertenece a la cuenta**, no a una instancia, y q
 - **Al terminar:** la IP se **desasocia**, pero **sigue reservada en la cuenta**, y se cobra, hasta que la **liberes** (*Release*).
 - **Para qué sirve:** **tolerancia a fallos y actualizaciones sin cortes**. Si una instancia falla o hay una versión nueva del servidor, se mueve la IP a otra instancia y los clientes no notan el cambio.
 - **Límite:** 5 por región, porque las IPv4 son escasas.
-- **Nota:** la diapositiva dice que "se libera" al detener o terminar. Ver la corrección en la [Clase 2](clase-2.md).
+- **Nota:** la diapositiva dice que "se libera" al detener o terminar. Ver la aclaración en la [Clase 2](clase-2.md).
 
 ---
 

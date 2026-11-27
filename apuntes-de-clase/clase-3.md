@@ -84,7 +84,7 @@ ssh -i /ruta/a/mi-clave.pem admin@<IP o DNS público>
 > **Con PuTTY (Windows):** hay que convertir el `.pem` a `.ppk` con **PuTTYGen** ("Load", "Save private key") y cargarlo en *Connection → SSH → Auth*.
 
 ### Grupos de seguridad (*security groups*)
-> **Corrección:** en clase quedó anotado *"firmware"*, pero es el **firewall**. El grupo de seguridad es el **firewall virtual** de la instancia.
+> **Ojo:** es **firewall**, no *firmware*. El grupo de seguridad es el **firewall virtual** de la instancia.
 
 - Contiene las **reglas que controlan el tráfico de entrada** (y de salida) de las instancias del grupo.
 - **Todo lo que no está permitido explícitamente, se bloquea.** Si querés que la instancia acepte tráfico en el puerto 80 (HTTP), tenés que **agregar una regla que lo permita** (*Allow*).

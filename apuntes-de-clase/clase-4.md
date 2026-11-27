@@ -1,6 +1,6 @@
 # Clase 4 – Actividad 1: servidor web en EC2, grupos de seguridad e IP elástica
 
-> **Nota:** esta nota estaba vacía. La armé con el material de la **Actividad 1 – AWS EC2** (entrega 25/09), que es lo que se trabajaba en esas semanas. Si en esta clase vieron otra cosa, avisame y la ajusto.
+> Actividad 1 – AWS EC2. Temas: servidor web Apache, grupos de seguridad, IP pública vs. IP privada e IP elástica.
 
 ---
 

@@ -12,7 +12,7 @@
 - **Almacenamiento microSD:** ahí está el **sistema operativo**; la placa **arranca desde la microSD** (no tiene disco).
 - **Interfaz GPIO:** el conector de **40 pines** para conectar sensores y actuadores.
 
-> **Corrección:** en la nota quedó "Interfaz GPIO (audio y entrada de micrófono)". El **GPIO no es de audio**: son **pines de propósito general** para sensores, LEDs, motores, etc. El audio sale por el **jack de 3,5 mm** (o por HDMI), y la Pi 3 **no tiene entrada de micrófono** integrada.
+> **Ojo:** el **GPIO no es de audio**: son **pines de propósito general** para sensores, LEDs, motores, etc. El audio sale por el **jack de 3,5 mm** (o por HDMI), y la Pi 3 **no tiene entrada de micrófono** integrada.
 
 > **Sobre WiFi y Bluetooth:** en la Pi 3, los dos **comparten el mismo chip de radio y la banda de 2,4 GHz**. Por eso pueden **interferirse** y bajar el rendimiento si se usan a la vez. No es que sea imposible usar los dos, pero conviene tenerlo en cuenta (por ejemplo, si el WiFi anda mal, desactivar el Bluetooth).
 
@@ -37,7 +37,7 @@
 | **GPIO digitales** | Programables como E/S. Lógica de **3,3 V** (ALTO = 3,3 V, BAJO = 0 V) | **No toleran 5 V**: meterles 5 V puede dañar el SoC |
 | **Con funcionalidad multiplexada** | Algunos GPIO se configuran para protocolos serie **I2C, SPI y UART**, para sensores complejos | En la materia no los usamos |
 
-> **Corrección de tipeo:** es **I2C** ("I cuadrado C", *Inter-Integrated Circuit*), no "12C".
+> **I2C** se lee "I cuadrado C" (*Inter-Integrated Circuit*).
 
 ### Numeración: pin físico (Board) vs. BCM
 - **Pin físico (Board):** la posición en el conector (1 a 40).

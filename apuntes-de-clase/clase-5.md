@@ -26,7 +26,7 @@ Los dispositivos ("cosas") cumplen uno de dos roles:
 | Conversión | Magnitud **física o química → eléctrica** | Energía **eléctrica → acción** (movimiento, luz, sonido…) |
 | Ejemplos | Temperatura, humedad, movimiento (PIR), distancia (ultrasonido), luz | LED, buzzer, motor, relé, bomba, ventilador |
 
-> **Corrección:** en la nota original quedaron mezclados los roles. Una **alarma residencial** es un **sistema** que combina los dos: los **sensores** (de movimiento o de apertura de puertas) **adquieren información**, y el **actuador** (la sirena) **ejecuta la acción** en el medio. Recordalo como **sensor = entrada** y **actuador = salida**.
+> **Ojo:** no hay que mezclar los roles. Una **alarma residencial** es un **sistema** que combina los dos: los **sensores** (de movimiento o de apertura de puertas) **adquieren información**, y el **actuador** (la sirena) **ejecuta la acción** en el medio. Recordalo como **sensor = entrada** y **actuador = salida**.
 
 ---
 
@@ -61,7 +61,7 @@ Los dispositivos ("cosas") cumplen uno de dos roles:
                                                                    --> [App celular suscripta a sensor/temperatura/+]
 ```
 
-> **Corrección:** en la nota quedó "es un protocolo seguro porque trabaja con TLS". Más precisamente: MQTT **ofrece** comunicación segura **usando TLS** (en general por el **puerto 8883**), pero en sí mismo **no cifra**. El MQTT "plano" va por el **puerto 1883 sin cifrar**. AWS IoT **exige** TLS; un Mosquitto o SimuPi local en el 1883, no.
+> **Ojo:** MQTT no es seguro por sí mismo. MQTT **ofrece** comunicación segura **usando TLS** (en general por el **puerto 8883**), pero en sí mismo **no cifra**. El MQTT "plano" va por el **puerto 1883 sin cifrar**. AWS IoT **exige** TLS; un Mosquitto o SimuPi local en el 1883, no.
 
 ### Calidad de servicio (QoS)
 
@@ -94,7 +94,7 @@ Es una **plataforma para interconectar dispositivos de forma fácil y segura**, 
 1. **Broker de mensajes:** comunicación por **MQTT, HTTP o WebSockets**.
 2. **Gateway para dispositivos:** permite el intercambio de mensajes con el modelo **publicación/suscripción** sobre un **tópico** concreto.
 3. **Autenticación y autorización:** **autenticación mutua y cifrado** en todos los puntos de conexión. Puede ser la de AWS (**SigV4**) o con **certificados X.509**.
-4. **Registro de dispositivos (*Registry*):** le da una **identidad única** a cada dispositivo ("*thing*") y define cómo se conecta. *(Este es el componente que faltaba en la nota.)*
+4. **Registro de dispositivos (*Registry*):** le da una **identidad única** a cada dispositivo ("*thing*") y define cómo se conecta.
 
 Además, en el diagrama aparecen:
 - **Device Shadows (dispositivos sombra):** una **copia digital del estado** de cada dispositivo, guardada en la nube. Las aplicaciones pueden leer o cambiar el estado **aunque el dispositivo físico esté desconectado**; cuando se reconecta, se sincroniza. Así se puede operar **como si el dispositivo físico estuviera digitalizado**.
@@ -110,7 +110,7 @@ Además, en el diagrama aparecen:
 
 ## Node-RED
 
-> **Corrección:** Node-RED **no es "un dashboard"**: es una **herramienta de programación visual basada en flujos**. El **dashboard** (la interfaz web con botones, gauges y gráficos) es un **complemento** que se instala aparte: `@flowfuse/node-red-dashboard`.
+> **Ojo:** Node-RED **no es "un dashboard"**: es una **herramienta de programación visual basada en flujos**. El **dashboard** (la interfaz web con botones, gauges y gráficos) es un **complemento** que se instala aparte: `@flowfuse/node-red-dashboard`.
 
 - La desarrolló **IBM** y desde **2016 es *open source***.
 - Muestra visualmente las relaciones y funciones, y permite programar **sin escribir código** (o escribiendo poco, con el nodo *function* en JavaScript).
@@ -167,8 +167,6 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.
 sudo apt update
 sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
-> **Corrección de tipeo:** es `docker-compose-plugin` (con guion), no `docker-composeplugin`.
-
 - `docker-ce`: el motor (*daemon*) · `docker-ce-cli`: el comando `docker` · `containerd.io`: el *runtime* de contenedores · `buildx` y `compose`: *plugins*.
 - Verificación: `docker --version` y `docker compose version`.
 
