@@ -34,7 +34,7 @@ Amazon ofrece un **nivel de seguridad muy alto**.
 
 ### Plan gratuito (capa gratuita)
 
-> **Ojo:** según la diapositiva, desde el **15/07/2025** el nivel gratuito da **hasta U$S 200 de crédito**: se asignan **U$S 100 al inicio** y el resto (**otros U$S 100**) se puede pedir después, durante **6 meses**. Al pasar a un plan pago, los créditos del nivel gratuito se mantienen por 12 meses. Al registrarte te piden una tarjeta de crédito, pero mientras haya crédito el consumo se descuenta de ahí y no de la tarjeta.
+Desde el **15/07/2025**, el nivel gratuito da **hasta U$S 200 de crédito**: se asignan **U$S 100 al inicio** y el resto (**otros U$S 100**) se puede pedir después, durante **6 meses**. Al pasar a un plan pago, los créditos del nivel gratuito se mantienen por 12 meses. Al registrarte te piden una tarjeta de crédito, pero mientras haya crédito el consumo se descuenta de ahí y no de la tarjeta.
 
 Incluye, entre otras cosas:
 - Instancias EC2 sin costo: **t3.micro**, t3.small, t4g.micro, t4g.small, c7i-flex.large, m7i-flex.large (Linux y/o Windows).
@@ -112,7 +112,7 @@ Las T2 y T3 son [instancias de desempeño con ráfagas](https://aws.amazon.com/e
 
 ![Tipos de almacenamiento de Amazon](img/tipos-de-almacenamiento.png)
 
-> **Ojo con los precios:** EBS **no** es el más caro de todos. **S3 sí es el más económico** por GB, pero el más caro por GB suele ser **EFS** (aprox. U$S 0,30 por GB/mes, contra U$S 0,08 de EBS gp3 y U$S 0,023 de S3 estándar). Lo que sí pasa con EBS es que **pagás todo el volumen que reservás**, lo uses o no; en S3 y EFS pagás solo lo que ocupás.
+**Costos:** **S3** es el más económico por GB y **EFS** el más caro (aprox. U$S 0,30 por GB/mes, contra U$S 0,08 de EBS gp3 y U$S 0,023 de S3 estándar). En EBS **pagás todo el volumen que reservás**, lo uses o no; en S3 y EFS pagás solo lo que ocupás.
 
 ### EBS (Elastic Block Store)
 Servicio de almacenamiento **basado en volúmenes**.
@@ -122,7 +122,7 @@ Servicio de almacenamiento **basado en volúmenes**.
 	- **Persisten con independencia de las instancias**: si apagás o terminás la instancia, el volumen puede seguir existiendo (salvo el volumen *root*, que por defecto se borra al terminar).
 	- Una instancia puede montar **varios volúmenes**, siempre **en la misma zona de disponibilidad**.
 - **Características:**
-	- Tamaños de **4 GB a 16 TB** (según la diapositiva).
+	- Tamaños de **4 GB a 16 TB**.
 	- **Replicación dentro de la misma zona** de disponibilidad.
 	- **Instantáneas (snapshots) en S3.**
 - **Tipos de volumen:**
@@ -186,7 +186,7 @@ mount -a -t nfs4                             # monta ahora
 - Después se verifica desde la consola de la instancia (por ejemplo, con `df -h`) que el file system quedó montado.
 - Ventaja: **varias instancias pueden montar el mismo EFS a la vez** (cosa que con EBS normalmente no se puede) y crece solo.
 
-> La diapositiva usa `yum` y `ec2-user` porque el ejemplo es para **Amazon Linux**. En **Debian** sería `apt install nfs-common` y el usuario `admin`.
+> Este script es para **Amazon Linux** (`yum`, usuario `ec2-user`). En **Debian** sería `apt install nfs-common` y el usuario `admin`.
 
 ---
 
@@ -218,12 +218,8 @@ Servicio de **monitoreo de los recursos de AWS y de las aplicaciones**.
 - **Mecanismo de tolerancia a fallos:** si una instancia falla, su IP elástica se asigna a otra y **el servicio no se interrumpe** (los clientes siguen usando la misma IP).
 - Por defecto hay un **límite de 5 por región**, porque las direcciones IPv4 son escasas.
 - Se llaman **elásticas** porque **las podés "pegar" a cualquier instancia**, y la IP no cambia con el tiempo.
-
-> **Ojo:** la diapositiva dice "si la instancia se detiene o se termina, la IP elástica se libera". En la práctica (y según la documentación de AWS):
-> - Si la instancia **se detiene**, la IP elástica **sigue asociada**. Justamente para eso sirve: una instancia **sin** IP elástica **cambia su IP pública** cada vez que se detiene y se vuelve a iniciar.
-> - Si la instancia **se termina**, la IP elástica **se desasocia**, pero **sigue reservada en tu cuenta** (y se sigue cobrando) hasta que la **liberes** a mano (*Release*).
->
-> Esto se comprueba en la Actividad 1 (ver [Clase 4](clase-4.md)).
+- Si la instancia **se detiene**, la IP elástica **sigue asociada** (una instancia **sin** IP elástica **cambia su IP pública** cada vez que se detiene y se vuelve a iniciar).
+- Si la instancia **se termina**, la IP elástica **se desasocia**, pero **sigue reservada en la cuenta** (y se cobra) hasta que se **libera** (*Release*). Ver la Actividad 1 en la [Clase 4](clase-4.md).
 
 **Ejemplo: actualizar un servidor sin cortar el servicio**
 1. El DNS (`www.mywebsite.com`) apunta a la IP elástica, que está asociada al servidor web v1.0.

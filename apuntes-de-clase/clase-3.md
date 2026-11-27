@@ -39,7 +39,7 @@ No fue un corte de fibra ni un disco roto (eso la replicación lo hubiera aguant
 
 ### Recomendaciones de uso de AWS
 - Al lanzarla, la instancia **arranca a ejecutarse y a consumir crédito**. Cuando no la uses, dejala **detenida** (*stopped*) o **terminada** (*terminated*): en esos estados **no se factura el cómputo**.
-	- **Ojo con la diferencia:** **detener** es como apagar la PC: se conservan el disco y la configuración. **Terminar** es **borrar** la instancia: por defecto también **se elimina el volumen EBS root** con todos sus datos. Antes de terminar, revisá que no necesites nada.
+	- **Detener vs. terminar:** **detener** es como apagar la PC: se conservan el disco y la configuración. **Terminar** es **borrar** la instancia: por defecto también **se elimina el volumen EBS root** con todos sus datos. Antes de terminar, revisá que no necesites nada.
 - **No modificar ni eliminar nada que no hayas creado vos** (la cuenta es compartida por todo el curso).
 - **Seguir las indicaciones** para **nombrar los recursos** (tags).
 - **Cada vez que se detiene y se vuelve a iniciar una instancia, cambia su IP pública**, salvo que le asignes una **IP elástica**. Funciona parecido a **reservar una IP en un DHCP**: en lugar de atar la IP a la dirección MAC, Amazon la ata a tu **cuenta** y la asociás a la instancia por su **ID**.
@@ -63,7 +63,7 @@ No fue un corte de fibra ni un disco roto (eso la replicación lo hubiera aguant
 7. Al terminar, **terminar (o detener) la instancia**.
 
 ### Acceso: no hay consola física, se entra por SSH
-- No tenemos **KVM** en el sentido de *Keyboard-Video-Mouse* (un monitor y un teclado conectados al servidor), porque la máquina está en un datacenter de Amazon. Ojo: no hay que confundirlo con el hipervisor KVM de la [Clase 1](clase-1.md).
+- No tenemos **KVM** en el sentido de *Keyboard-Video-Mouse* (un monitor y un teclado conectados al servidor), porque la máquina está en un datacenter de Amazon (no es el hipervisor KVM de la [Clase 1](clase-1.md)).
 - El acceso es **remoto**:
 	- **Linux / macOS:** por **SSH** desde la terminal.
 	- **Windows:** con un cliente SSH como **PuTTY**. Si la instancia **es Windows**, se entra por **RDP** (escritorio remoto).
@@ -84,8 +84,7 @@ ssh -i /ruta/a/mi-clave.pem admin@<IP o DNS público>
 > **Con PuTTY (Windows):** hay que convertir el `.pem` a `.ppk` con **PuTTYGen** ("Load", "Save private key") y cargarlo en *Connection → SSH → Auth*.
 
 ### Grupos de seguridad (*security groups*)
-> **Ojo:** es **firewall**, no *firmware*. El grupo de seguridad es el **firewall virtual** de la instancia.
-
+El grupo de seguridad es el **firewall virtual** de la instancia.
 - Contiene las **reglas que controlan el tráfico de entrada** (y de salida) de las instancias del grupo.
 - **Todo lo que no está permitido explícitamente, se bloquea.** Si querés que la instancia acepte tráfico en el puerto 80 (HTTP), tenés que **agregar una regla que lo permita** (*Allow*).
 - Una instancia puede pertenecer a **varios grupos** a la vez.

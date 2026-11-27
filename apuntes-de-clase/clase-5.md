@@ -12,7 +12,7 @@
 
 **Definición:** IoT es la **interconexión digital de objetos cotidianos por medio de Internet**. También se la define como el **momento en que se conectan a Internet más "cosas" que personas**. Si los objetos tuvieran etiquetas de radio incorporadas, otros equipos podrían identificarlos y gestionarlos igual que lo haría una persona.
 
-> **Ojo:** no alcanza con que un objeto esté conectado a Internet (eso es solo un *objeto conectado*). En IoT, los objetos **capturan datos de manera autónoma, intercambian eventos y son interoperables** para formar un **ambiente inteligente**.
+> No alcanza con que un objeto esté conectado a Internet (eso es solo un *objeto conectado*). En IoT, los objetos **capturan datos de manera autónoma, intercambian eventos y son interoperables** para formar un **ambiente inteligente**.
 
 - **Definición formal:** modelo o paradigma de **interconexión de sensores y actuadores (objetos inteligentes)** para lograr un **ambiente inteligente**, con un alto grado de **captura autónoma de datos, transferencia de eventos e interoperabilidad**.
 - **Definición informal:** red de objetos "inteligentes" que usan tecnologías para **comunicarse entre ellos y con su entorno**.
@@ -26,7 +26,7 @@ Los dispositivos ("cosas") cumplen uno de dos roles:
 | Conversión | Magnitud **física o química → eléctrica** | Energía **eléctrica → acción** (movimiento, luz, sonido…) |
 | Ejemplos | Temperatura, humedad, movimiento (PIR), distancia (ultrasonido), luz | LED, buzzer, motor, relé, bomba, ventilador |
 
-> **Ojo:** no hay que mezclar los roles. Una **alarma residencial** es un **sistema** que combina los dos: los **sensores** (de movimiento o de apertura de puertas) **adquieren información**, y el **actuador** (la sirena) **ejecuta la acción** en el medio. Recordalo como **sensor = entrada** y **actuador = salida**.
+> **Ejemplo:** una **alarma residencial** es un **sistema** que combina los dos: los **sensores** (de movimiento o de apertura de puertas) **adquieren información**, y el **actuador** (la sirena) **ejecuta la acción** en el medio. Recordalo como **sensor = entrada** y **actuador = salida**.
 
 ---
 
@@ -61,7 +61,7 @@ Los dispositivos ("cosas") cumplen uno de dos roles:
                                                                    --> [App celular suscripta a sensor/temperatura/+]
 ```
 
-> **Ojo:** MQTT no es seguro por sí mismo. MQTT **ofrece** comunicación segura **usando TLS** (en general por el **puerto 8883**), pero en sí mismo **no cifra**. El MQTT "plano" va por el **puerto 1883 sin cifrar**. AWS IoT **exige** TLS; un Mosquitto o SimuPi local en el 1883, no.
+> **Seguridad:** MQTT **ofrece** comunicación segura **usando TLS** (en general por el **puerto 8883**), pero en sí mismo **no cifra**. El MQTT "plano" va por el **puerto 1883 sin cifrar**. AWS IoT **exige** TLS; un Mosquitto o SimuPi local en el 1883, no.
 
 ### Calidad de servicio (QoS)
 
@@ -110,7 +110,7 @@ Además, en el diagrama aparecen:
 
 ## Node-RED
 
-> **Ojo:** Node-RED **no es "un dashboard"**: es una **herramienta de programación visual basada en flujos**. El **dashboard** (la interfaz web con botones, gauges y gráficos) es un **complemento** que se instala aparte: `@flowfuse/node-red-dashboard`.
+> Node-RED es una **herramienta de programación visual basada en flujos**. El **dashboard** (la interfaz web con botones, gauges y gráficos) es un **complemento** que se instala aparte: `@flowfuse/node-red-dashboard`.
 
 - La desarrolló **IBM** y desde **2016 es *open source***.
 - Muestra visualmente las relaciones y funciones, y permite programar **sin escribir código** (o escribiendo poco, con el nodo *function* en JavaScript).
@@ -210,8 +210,6 @@ docker compose up -d      # inicia en segundo plano (-d = detached)
 docker compose ps         # estado del contenedor
 docker compose logs -f    # logs en vivo (Ctrl+C para salir)
 ```
-> En la diapositiva dice `docker compose ps -f` para ver en tiempo real, pero el comando correcto para seguir la salida es **`docker compose logs -f`** (así figura en la guía del Taller 2).
-
 - Editor: `http://<IP pública>:1880`. Dashboard: `http://<IP pública>:1880/dashboard`.
 - **El grupo de seguridad tiene que permitir el TCP 1880**, idealmente **solo desde tu IP**.
 

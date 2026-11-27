@@ -12,8 +12,6 @@
 - **Almacenamiento microSD:** ahí está el **sistema operativo**; la placa **arranca desde la microSD** (no tiene disco).
 - **Interfaz GPIO:** el conector de **40 pines** para conectar sensores y actuadores.
 
-> **Ojo:** el **GPIO no es de audio**: son **pines de propósito general** para sensores, LEDs, motores, etc. El audio sale por el **jack de 3,5 mm** (o por HDMI), y la Pi 3 **no tiene entrada de micrófono** integrada.
-
 > **Sobre WiFi y Bluetooth:** en la Pi 3, los dos **comparten el mismo chip de radio y la banda de 2,4 GHz**. Por eso pueden **interferirse** y bajar el rendimiento si se usan a la vez. No es que sea imposible usar los dos, pero conviene tenerlo en cuenta (por ejemplo, si el WiFi anda mal, desactivar el Bluetooth).
 
 ### Uso "headless" (sin monitor)

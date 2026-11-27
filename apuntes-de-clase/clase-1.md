@@ -188,13 +188,11 @@ La virtualización **abstrae el hardware**: agrega una capa de software sobre el
 | Dónde corre | **Directamente sobre el hardware** | **Sobre un SO anfitrión** |
 | Eficiencia | Más eficiente | Menos eficiente (hay un SO de por medio) |
 | Cómo funciona | Implementa las funciones básicas de un micro-kernel | Se integra con el SO y hace de capa intermedia entre el SO y las VMs |
-| Ejemplos | **Xen, VMware ESX/ESXi, Microsoft Hyper-V** | **VMware Workstation, VirtualBox** (y KVM según la diapositiva) |
+| Ejemplos | **Xen, VMware ESX/ESXi, Microsoft Hyper-V** | **VMware Workstation, KVM, VirtualBox** |
 | Uso típico | Datacenters, clouds | PC de escritorio, pruebas |
 
 ![](img/hipervisor-tipo-1.png)
 ![](img/hipervisor-tipo-2.png)
-
-> **Ojo con KVM:** la diapositiva lo pone como tipo 2, porque se instala en un Linux "normal". Pero KVM es un **módulo del kernel de Linux** que convierte al propio kernel en hipervisor, y por eso muchos autores (y la documentación de AWS y Red Hat) lo clasifican como **tipo 1**. Para el examen conviene responder lo de la cátedra y, si da el espacio, aclarar esta discusión.
 
 ### Anillos de privilegio (por qué la virtualización es difícil en x86)
 

@@ -46,8 +46,7 @@ Es cuando un **cloud privado "desborda" hacia un cloud público** para atender *
 
 ### 7. Hipervisor tipo 1 vs. tipo 2 (con ejemplos).
 - **Tipo 1 (nativo o *bare metal*):** se ejecuta **directamente sobre el hardware**, sin un SO de por medio, y funciona como un micro-kernel. Es **más eficiente**, y es el que se usa en los datacenters y los clouds. Ejemplos: **Xen, VMware ESX/ESXi, Microsoft Hyper-V**.
-- **Tipo 2 (*hosted*):** se ejecuta **sobre un SO anfitrión**, como una capa intermedia entre el SO y las VMs. Es **menos eficiente** (cada operación atraviesa el SO anfitrión) y se usa en escritorio o para pruebas. Ejemplos: **VMware Workstation, VirtualBox**.
-- **Matiz:** la cátedra pone a **KVM** como tipo 2, pero KVM es un módulo que **convierte al kernel de Linux en hipervisor**, y por eso muchos autores lo clasifican como tipo 1.
+- **Tipo 2 (*hosted*):** se ejecuta **sobre un SO anfitrión**, como una capa intermedia entre el SO y las VMs. Es **menos eficiente** (cada operación atraviesa el SO anfitrión) y se usa en escritorio o para pruebas. Ejemplos: **VMware Workstation, KVM, VirtualBox**.
 
 ### 8. ¿Por qué los anillos de privilegio de x86 complican la virtualización? ¿Cómo lo resuelve cada técnica?
 x86 tiene **4 anillos** (0 = kernel, el más privilegiado; 3 = aplicaciones). Los SO están hechos para **correr en el anillo 0** y ejecutar instrucciones privilegiadas (memoria, E/S). Pero si hay un hipervisor, **el anillo 0 tiene que ser del VMM**, que es el que controla el hardware y las VMs. Entonces el **SO guest queda en un anillo menos privilegiado**, y cuando intenta ejecutar una instrucción privilegiada, el VMM tiene que **capturarla y emularla**. El problema es que algunas instrucciones sensibles de x86 **no generan una trampa** que el VMM pueda capturar.
@@ -120,7 +119,6 @@ Es una **IPv4 pública fija que pertenece a la cuenta**, no a una instancia, y q
 - **Al terminar:** la IP se **desasocia**, pero **sigue reservada en la cuenta**, y se cobra, hasta que la **liberes** (*Release*).
 - **Para qué sirve:** **tolerancia a fallos y actualizaciones sin cortes**. Si una instancia falla o hay una versión nueva del servidor, se mueve la IP a otra instancia y los clientes no notan el cambio.
 - **Límite:** 5 por región, porque las IPv4 son escasas.
-- **Nota:** la diapositiva dice que "se libera" al detener o terminar. Ver la aclaración en la [Clase 2](clase-2.md).
 
 ---
 
